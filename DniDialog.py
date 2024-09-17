@@ -12,21 +12,33 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(398, 306)
+        Dialog.resize(602, 291)
         Dialog.setStyleSheet("QDialog{\n"
 "background-color:whitesmoke;\n"
 "border:solid 2px black;\n"
 "border-radius:4px;\n"
 "}")
-        self.line_dni = QtWidgets.QLineEdit(parent=Dialog)
-        self.line_dni.setGeometry(QtCore.QRect(20, 90, 131, 22))
-        self.line_dni.setObjectName("line_dni")
+        self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(parent=Dialog)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
         self.cmb_Genre = QtWidgets.QComboBox(parent=Dialog)
-        self.cmb_Genre.setGeometry(QtCore.QRect(20, 50, 131, 22))
         self.cmb_Genre.setCurrentText("")
         self.cmb_Genre.setObjectName("cmb_Genre")
+        self.verticalLayout.addWidget(self.cmb_Genre)
+        self.line_dni = QtWidgets.QLineEdit(parent=Dialog)
+        self.line_dni.setObjectName("line_dni")
+        self.verticalLayout.addWidget(self.line_dni)
+        self.lbl_invisible = QtWidgets.QLabel(parent=Dialog)
+        self.lbl_invisible.setStyleSheet("QLabel{\n"
+"background-color:grey;\n"
+"color:white;\n"
+"}")
+        self.lbl_invisible.setText("")
+        self.lbl_invisible.setObjectName("lbl_invisible")
+        self.verticalLayout.addWidget(self.lbl_invisible)
         self.btn_ok = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_ok.setGeometry(QtCore.QRect(230, 260, 75, 24))
         self.btn_ok.setStyleSheet("QPushButton\n"
 "{\n"
 "color:whitesmoke;\n"
@@ -39,8 +51,8 @@ class Ui_Dialog(object):
 "background-color:rgb(86, 229, 78);\n"
 "}")
         self.btn_ok.setObjectName("btn_ok")
+        self.verticalLayout.addWidget(self.btn_ok)
         self.btn_cancel = QtWidgets.QPushButton(parent=Dialog)
-        self.btn_cancel.setGeometry(QtCore.QRect(310, 260, 75, 24))
         self.btn_cancel.setStyleSheet("QPushButton{\n"
 "color:whitesmoke;\n"
 "background-color:rgb(202, 202, 202);\n"
@@ -52,17 +64,7 @@ class Ui_Dialog(object):
 "background-color:red;\n"
 "}")
         self.btn_cancel.setObjectName("btn_cancel")
-        self.lbl_invisible = QtWidgets.QLabel(parent=Dialog)
-        self.lbl_invisible.setGeometry(QtCore.QRect(20, 140, 351, 41))
-        self.lbl_invisible.setStyleSheet("QLabel{\n"
-"background-color:grey;\n"
-"color:white;\n"
-"}")
-        self.lbl_invisible.setText("")
-        self.lbl_invisible.setObjectName("lbl_invisible")
-        self.label = QtWidgets.QLabel(parent=Dialog)
-        self.label.setGeometry(QtCore.QRect(130, 10, 151, 21))
-        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.btn_cancel)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -70,8 +72,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.line_dni.setPlaceholderText(_translate("Dialog", "Ingrese DNI:"))
+        self.label.setText(_translate("Dialog", "Ingrese los datos solicitados"))
         self.cmb_Genre.setPlaceholderText(_translate("Dialog", "Seleccionar Género:"))
+        self.line_dni.setPlaceholderText(_translate("Dialog", "Ingrese DNI:"))
         self.btn_ok.setText(_translate("Dialog", "OK"))
         self.btn_cancel.setText(_translate("Dialog", "Cancel"))
-        self.label.setText(_translate("Dialog", "Ingrese los datos solicitados"))
